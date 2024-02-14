@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  web:
+    restart: always
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: admin
+      DATABASE_NAME: myapp_development
+      depends_on:
+        - db
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: myapp_development
+
+volumes:
+  postgres_data_dev:
