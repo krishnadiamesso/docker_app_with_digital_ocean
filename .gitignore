@@ -32,5 +32,4 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
-.env
-.idea
+!/.env
